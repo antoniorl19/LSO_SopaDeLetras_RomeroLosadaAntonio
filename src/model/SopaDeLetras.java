@@ -58,7 +58,8 @@ public class SopaDeLetras {
         int[][] coords = new int[palabra.length()][2];
         int k = 0;
         while (k < palabra.length() ) {
-            if (i < sopa.length && j < sopa[i].length && sopa[i][j] == palabra.charAt(k)) {
+
+                if (i < sopa.length && j < sopa[i].length && Character.toUpperCase(sopa[i][j]) == Character.toUpperCase(palabra.charAt(k))) {
                 coords[k][0] = i;
                 coords[k][1] = j;
                 if (vertical)
