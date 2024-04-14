@@ -24,17 +24,18 @@ public class SopaDeLetras {
 
 
     public static boolean buscarPalabra(String palabra) {
+        palabra = palabra.toUpperCase();;
         for (int i = 0; i < sopa.length; i++) {
             for (int j = 0; j < sopa[i].length; j++) {
-                if (sopa[i][j] == palabra.charAt(0)) {
+                if (Character.toUpperCase(sopa[i][j]) == palabra.charAt(0)) {
                     //Comprobar vertical
-                    int[][] coords = comprobarPalabra(palabra, i, j);
+                    int[][] coords = comprobarPalabra(palabra, i, j, true);
                     if (coords != null) {
                         marcarLetrasDescubiertas(coords);
                         return true;
                     } else {
                         //Comprobar hoirzontal
-                        coords = comprobarPalabra(palabra, i, j);
+                        coords = comprobarPalabra(palabra, i, j, false);
                         if (coords != null) {
                             marcarLetrasDescubiertas(coords);
                             return true;
