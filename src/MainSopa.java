@@ -11,15 +11,18 @@ public class MainSopa {
         String cadena = Utils.LeerString("Introduce una cadena de 100 letras:", 100, 100);
         sopaDeLetras.crearSopadeLetras(cadena);
 
-        while (palabrasEncontradas < 5) {
+        while (palabrasEncontradas < 4) {
             mostrarSopaDeLetras(sopaDeLetras.getSopa(),sopaDeLetras.getDescubiertas());
             String paraula = Utils.LeerString("Introduce la palabra a buscar:", 1, 10);
             if (sopaDeLetras.buscarPalabra(paraula)) {
                 System.out.println("Palabra encontrada");
+                palabrasEncontradas++;
             } else {
                 System.out.println("Paraula no encontrada");
             }
-            palabrasEncontradas++;
+            if (palabrasEncontradas >= 4) {
+                break;
+            }
         }
         System.out.println("Has encontrado todas las palabras.");
     }
